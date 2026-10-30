@@ -42,6 +42,27 @@ export function SocialIcon({ label }: Props) {
       </svg>
     )
   }
+  if (key === 'github') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden width={18} height={18}>
+        <path
+          fill="currentColor"
+          d="M12 .5A11.5 11.5 0 0 0 .5 12.3c0 5.22 3.38 9.65 8.07 11.21.59.1.8-.26.8-.57v-2.2c-3.28.73-3.97-1.42-3.97-1.42-.53-1.38-1.3-1.75-1.3-1.75-1.06-.75.08-.73.08-.73 1.17.08 1.79 1.22 1.79 1.22 1.04 1.83 2.73 1.3 3.4.99.1-.78.4-1.3.74-1.6-2.62-.3-5.37-1.34-5.37-5.97 0-1.32.46-2.4 1.22-3.24-.12-.31-.53-1.56.12-3.25 0 0 1-.33 3.3 1.25a11.3 11.3 0 0 1 6 0c2.28-1.58 3.28-1.25 3.28-1.25.66 1.69.24 2.94.12 3.25.76.84 1.22 1.92 1.22 3.24 0 4.64-2.76 5.66-5.39 5.96.42.37.8 1.1.8 2.22v3.29c0 .31.21.68.81.57A11.51 11.51 0 0 0 23.5 12.3 11.5 11.5 0 0 0 12 .5z"
+        />
+      </svg>
+    )
+  }
+  if (key === 'nostr') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden width={18} height={18}>
+        <circle cx="12" cy="12" r="9.25" fill="none" stroke="currentColor" strokeWidth="1.7" />
+        <path
+          fill="currentColor"
+          d="M7.4 7.2h9.2v1.9h-3.15V16.8H11.2V9.1H7.4z"
+        />
+      </svg>
+    )
+  }
   if (key === 'youtube') {
     return (
       <svg viewBox="0 0 24 24" aria-hidden width={18} height={18}>
@@ -52,15 +73,10 @@ export function SocialIcon({ label }: Props) {
       </svg>
     )
   }
-  if (key === 'tiktok') {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden width={18} height={18}>
-        <path
-          fill="currentColor"
-          d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"
-        />
-      </svg>
-    )
-  }
-  return null
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden width={18} height={18}>
+      <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeWidth="1.7" />
+      <circle cx="12" cy="12" r="2.2" fill="currentColor" />
+    </svg>
+  )
 }

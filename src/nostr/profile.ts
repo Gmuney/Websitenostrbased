@@ -7,6 +7,7 @@ export type NostrProfile = {
   display_name?: string
   about?: string
   picture?: string
+  banner?: string
   website?: string
   nip05?: string
   lud16?: string
@@ -25,9 +26,11 @@ export function npubToHex(npubOrHex: string): string | null {
   return null
 }
 
-function parseProfile(event: Event): NostrProfile | null {
+export function parseProfile(event: Event): NostrProfile | null {
   try {
-    return JSON.parse(event.content) as NostrProfile
+    const value: unknown = JSON.parse(event.content)
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return null
+    return value as NostrProfile
   } catch {
     return null
   }
@@ -51,11 +54,11 @@ export async function fetchProfile(
   }
 
   try {
-    const event = await pool.get(relayUrls, {
-      kinds: [0],
-      authors: [authorHex],
-      limit: 1,
-    })
+    const event = await pool.get(
+      relayUrls,
+      { kinds: [0], authors: [authorHex] },
+      { maxWait: 8000 },
+    )
     return {
       profile: event ? parseProfile(event) : null,
       relayCount: relayUrls.length,
